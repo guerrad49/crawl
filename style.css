@@ -2,30 +2,37 @@ body {
     margin: 0;
     height: 100vh;
     background: black;
-    color: yellow;
+    color: rgb(255, 215, 0);
     overflow: hidden;
     font-family: 'Arial', sans-serif;
-    perspective: 800px; /* changed from 400 */
+    perspective: 400px;
 }
 
 .star-wars {
     position: relative;
     height: 100vh;
     overflow: hidden;
-    display: flex; /* new */
-    align-items: flex-end; /* new */
-    justify-content: center; /* new */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .crawl {
-    /* position: absolute;
-    top: 100%;
-    width: 100%; */
     width: 80%;
     max-width: 800px;
     text-align: justify;
     transform-origin: 50% 100%;
-    animation: crawl 90s linear forwards;
+    /* Hide text before animation starts. */
+    opacity: 0;
+    visibility: hidden;
+    /* ================================== */
+    transition: opacity 5s ease-in;
+}
+
+.animate-crawl {
+    animation: crawl 120s linear forwards;
+    opacity: 1;
+    visibility: visible;
 }
 
 .starfield {
@@ -48,9 +55,7 @@ body {
 pre {
     white-space: pre-wrap;
     text-align: center;
-    font-size: 26px;
-    /* max-width: 600px;
-    margin: 0 auto; */
+    font-size: 28px;
 }
 
 #start-button {
@@ -58,11 +63,11 @@ pre {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 1.5rem;
-    color: yellow;
+    font-size: 2.5rem;
+    color: rgb(255, 215, 0);
     background: none;
-    border: 2px solid yellow;
-    padding: 1em 2em;
+    border: 2px solid rgb(255, 215, 0);
+    padding: 1em 1em;
     cursor: pointer;
     font-family: 'Courier New', Courier, monospace;
     z-index: 2;
@@ -75,6 +80,6 @@ pre {
     }
     100% {
         /* top: -200%; */
-        transform: rotateX(25deg) translateZ(-1000px) translateY(-200%);
+        transform: rotateX(25deg) translateZ(-1000px) translateY(-300%);
     }
 }

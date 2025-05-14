@@ -6,20 +6,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <button id="start-button">START</button>
   <div class="starfield"></div>
-  <button id="start-button">MUSIC</button>
-
-  <audio id="theme" autoplay>
+  
+  <!-- removed autoplay -->
+  <audio id="theme">
     <source src="theme.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
+  <!-- Link dynamicall to external text. -->
   <div class="star-wars">
     <div class="crawl" id="crawl">
       <pre id="crawl-text">Loading...</pre>
     </div>
   </div>
 
+  <!-- Link to external JS. -->
   <script src="script.js"></script>
 </body>
 </html>

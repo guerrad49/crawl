@@ -8,20 +8,24 @@ for (let i = 0; i < 200; i++) {
     starfield.appendChild(star);
 }
 
-// Start button logic.
-const startBtn = document.getElementById('start-button');
-const crawlContainer = document.getElementById('crawl');
-const music = document.getElementById('theme');
-
-startBtn.addEventListener('click', () => {
-    startBtn.style.display = 'none';
-    crawlContainer.style.display = 'block';
-    music.play().catch(err => console.log('Autoplay blocked:', err));
-});
-
 // Get crawl text dynamically.
 fetch('crawl.txt')
     .then(response => response.text())
     .then(text => {
         document.getElementById('crawl-text').textContent = text;
     });
+
+// Start button logic.
+function startExperience() {
+  const audio = document.getElementById('theme');
+  const crawl = document.getElementById('crawl');
+  const startButton = document.getElementById('start-button');
+
+  startButton.style.display = 'none';  // Hide button.
+  audio.play();  // Start music.
+
+  // Add animation class to start crawl
+  crawl.classList.add('animate-crawl');
+}
+
+document.getElementById('start-button').addEventListener('click', startExperience);
